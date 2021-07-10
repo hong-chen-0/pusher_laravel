@@ -1,15 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-use App\Events\MessageSent;
-
-class SendMessage extends Controller
-{
+class SendMessage extends Controller{
     public function send(Request $request){
-        event(new \App\Events\MessageSent('客户端收到消息'));
-        return '服务器发送信息';
+        $name = $request->input('name');
+        $content = $request->input('content');
+
+        $list = array(
+            array(
+                "laravel_name" => $name,
+                "laravel_content" => $content, 
+            )
+        );
+
+        event(new \App\Events\MessageSent($list));
+        return '235235';
+    }
+    public function send2(Request $request){
+        return 'ok';
     }
 }
