@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Route::any('/messages', function () {
 
-    event(new \App\Events\MessageSent('测试'));
-    return '发送信息';
+    event(new \App\Events\MessageSent('客户端收到消息'));
+    return '服务器发送信息';
 });
+
+Route::any('/send', 'SendMessage@send');
