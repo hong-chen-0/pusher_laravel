@@ -23,7 +23,7 @@ class SendMessage extends Controller{
         );
 
         event(new \App\Events\MessageSent($list));
-        return '235235';
+        return $list;
     }
     public function send2(Request $request){
         return 'ok';

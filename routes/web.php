@@ -24,4 +24,3 @@ Route::any('/messages', function () {
     return '服务器发送信息';
 });
 
-Route::any('/send', 'SendMessage@send');
