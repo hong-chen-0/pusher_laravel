@@ -25,7 +25,4 @@ class SendMessage extends Controller{
         event(new \App\Events\MessageSent($list));
         return $list;
     }
-    public function send2(Request $request){
-        return 'ok';
-    }
 }
