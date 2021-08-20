@@ -19,5 +19,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::any('/send', 'SendMessage@send');
-
-Route::any('/send2', 'SendMessage@send');
